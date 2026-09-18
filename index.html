@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>World Tourism Day 2026 — SLITHM Anuradhapura</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* Pop-up layout overrides: no gift tap, no scroll narrative —
+       everything appears together on one screen instead. Kept inline
+       here so style.css stays exactly as-is for the other pages/versions
+       that still use it. */
+    #gift-section { display: none; }
+    /* RSVP buttons removed from view. Left in the DOM (hidden) so
+       script.js, which wires up #yesBtn/#noBtn unconditionally, keeps
+       running without a script.js edit. */
+    #btnGroup { display: none; }
+    body { display: flex; flex-direction: column; min-height: 100svh; }
+    /* the three content sections are centered together as a group in
+       whatever space is left above the footer, with even gaps between
+       them for a smoother rhythm */
+    #page-content { display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1 1 auto; gap: 6px; }
+    section.reveal { min-height: auto; padding: 18px 16px; }
+    #title-section .big.quote { font-size: 21px; }
+    #final-section { padding-top: 10px; padding-bottom: 10px; }
+    #typed-text { min-height: 50px; font-size: 16px; max-width: 480px; }
+    #brand-footer { padding-top: 20px; padding-bottom: 12px; }
+    .footer-logo { width: 44px; }
+    .footer-caption { font-size: 11px; }
+    @media (max-height: 720px) {
+        #page-content { gap: 2px; }
+        section.reveal { padding: 12px 14px; }
+        #title-section .big.quote { font-size: 19px; }
+        .detail-chip { padding: 10px 14px; min-width: 160px; }
+        .footer-logo { width: 38px; }
+    }
+</style>
+</head>
+<body>
+
+    <!-- animated photo background: slow Ken Burns pan/zoom, plus a
+         color-shifting tint on top so the navy/gold mood carries through -->
+    <div class="bg-photo" aria-hidden="true"></div>
+    <div class="bg-overlay" aria-hidden="true"></div>
+
+    <div id="page-content">
+
+    <!-- Gift section kept in the DOM (hidden) so script.js, which wires up
+         its button, keeps working unmodified — it just never shows. -->
+    <section id="gift-section">
+        <button id="giftBtn" type="button" aria-label="Open the invitation">
+            <span class="gift-box" id="giftBox">🎁</span>
+        </button>
+        <div id="gift-hint">Tap the gift to open it</div>
+        <div id="scroll-cue"><a href="#title-section"><span class="arrow">↓</span>scroll to reveal the details</a></div>
+    </section>
+
+    <!-- EVENT TITLE -->
+    <section class="reveal compact" id="title-section" data-particles="tech">
+        <div class="particle-layer" id="layer-title"></div>
+        <div class="big quote">&ldquo;Digital Agenda and Artificial Intelligence to Redesign Tourism&rdquo;</div>
+        <div class="label">World Tourism Day Celebration 2026</div>
+    </section>
+
+    <!-- DATE + VENUE -->
+    <section class="reveal compact" id="details-section" data-particles="travel">
+        <div class="particle-layer" id="layer-details"></div>
+        <div class="label">Let the festivities unfold</div>
+        <div class="detail-row">
+            <div class="detail-chip">
+                <span class="chip-icon">📅</span>
+                <span class="chip-text">28th September<br><small>10:00 AM onwards</small></span>
+            </div>
+            <div class="detail-chip">
+                <span class="chip-icon">📍</span>
+                <span class="chip-text">School Premises<br><small>SLITHM, Anuradhapura</small></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL INVITATION (no card — floats directly over the photo) -->
+    <section class="reveal compact" id="final-section">
+        <div id="typed-text"></div>
+        <div class="btn-group" id="btnGroup">
+            <button class="yes-btn" id="yesBtn" type="button">I'll Be There ✈️</button>
+            <button id="noBtn" type="button">Can't Make It</button>
+        </div>
+        <div id="thanks"></div>
+    </section>
+
+    </div><!-- /#page-content -->
+
+    <!-- BRAND FOOTER: relocated SLITHM logo + caption, at the very bottom -->
+    <section class="reveal compact" id="brand-footer">
+        <img class="emoji footer-logo" src="logo.png" alt="SLITHM logo">
+        <div class="footer-caption">SLITHM &mdash; Anuradhapura</div>
+    </section>
+
+<script src="script.js"></script>
+</body>
+</html>
